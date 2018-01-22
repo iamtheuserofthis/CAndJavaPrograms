@@ -34,6 +34,7 @@ class RatMazeConventional{
 						     {0,0,0,0,0},
 						     {0,0,0,0,0}
 					  };
+
 	public static void main(String[] args){
 		int[][] maze= {
 						 {1,1,1,0,0},
@@ -50,8 +51,10 @@ class RatMazeConventional{
 		System.out.println("solution here-------------");
 		MazeUtil.printMatrix(sol,5,5);
 
+
   }
     public static boolean solvePuz(int[][] maze,int x ,int y,int endx,int endy,boolean status){
+
 		System.out.println();
 		MazeUtil.printMatrix(sol,5,5);
 		if(x==endx && y==endy){
@@ -60,24 +63,23 @@ class RatMazeConventional{
 			return true;
 
 			}else{
+
 				if(MazeUtil.isSafe(x,y,maze,sol,5)){
+
 					sol[x][y] = 1;
 
+					if(solvePuz(maze,x,y-1,endx,endy,status)) return true;
 
-					if(solvePuz(maze,x,y+1,endx,endy,status)) return true;
-
-
-					else if(solvePuz(maze,x,y-1,endx,endy,status)) return true;
-
-
+					else if(solvePuz(maze,x,y+1,endx,endy,status)) return true;
 
 					else if(solvePuz(maze,x-1,y,endx,endy,status)) return true;
 
-
 					else if(solvePuz(maze,x+1,y,endx,endy,status)) return true;
 
-					else{sol[x][y] = 0;
-					status = false;}
+					else{
+					sol[x][y] = 0;
+					status = false;
+					}
 
 				}
 				//status = false;

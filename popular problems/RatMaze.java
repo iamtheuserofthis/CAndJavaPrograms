@@ -61,6 +61,7 @@ class MazeUtil{
 
 
 class RatMaze{
+
 	public static void main(String[] args){
 		int[][] maze= {
 						 {1,1,1,0,0},
@@ -93,6 +94,7 @@ class RatMaze{
 		System.out.println("Result here---------");
 		System.out.println("Following is just a solution not the optimum solution");
 		MazeUtil.printMatrix(solu,n,n);
+
   }
     public static int[][] solvePuz(int[][] maze,int[][] sol,Stack<Pos> stepStack,Pos step,Pos end){
 
